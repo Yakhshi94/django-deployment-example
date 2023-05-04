@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Base</title>
+  </head>
+  <style media="screen">
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar {
+      padding: 8px 0px;
+      width: 100%;
+      background-color: darkgray;
+      margin: auto;
+    }
+    ul {
+      width: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+    ul li {
+      margin: 0 10px;
+      list-style-type: none;
+      border: 1px solid #fff;
+      padding: 10px;
+      background-color: darkorange;
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #fff;
+      font-size: 1rem;
+
+    }
+  </style>
+  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul>
+          <li><a class="brand" href="{% url 'index' %}">Brand</a></li>
+          <li><a class="brand" href="{% url 'basicapp:relatives' %}">Relative</a></li>
+          <li> <a class="other" href="{% url 'basicapp:other' %}">Others</a> </li>
+          <li> <a class="admin" href="{% url 'admin:index' %}">Admin</a> </li>
+        </ul>
+      </nav>
+    </div>
+    {% block body_block %}
+      <h1>This Is Base Class Specific</h1>
+      {{ text|cut:"Demo" }}
+      {{ number|add:900 }}
+    {% endblock %}
+  </body>
+</html>
